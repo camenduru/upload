@@ -1,0 +1,14 @@
+spring:
+  application:
+    name: upload
+  servlet:
+    multipart:
+      max-file-size: ${com_camenduru_upload_max_file_size}
+      max-request-size: ${com_camenduru_upload_max_file_size}
+camenduru:
+  upload.s3.region: ${com_camenduru_upload_s3_region}
+  upload.s3.access: ${com_camenduru_upload_s3_access}
+  upload.s3.secret: ${com_camenduru_upload_s3_secret}
+  upload.s3.bucket: ${com_camenduru_upload_s3_bucket}
+  upload.s3.preview: ${com_camenduru_upload_s3_preview}
+  upload.s3.endpoint: ${com_camenduru_upload_s3_endpoint}
