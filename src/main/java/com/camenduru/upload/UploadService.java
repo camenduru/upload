@@ -20,7 +20,7 @@ import java.util.UUID;
 
 @RestController
 @RequestMapping("/api")
-public class UploadResource {
+public class UploadService {
 
     @Value("${camenduru.upload.s3.region}")
     private String camenduruWebS3Region;
