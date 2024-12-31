@@ -11,7 +11,7 @@ import software.amazon.awssdk.services.s3.model.*;
 import software.amazon.awssdk.services.s3.S3Client;
 import software.amazon.awssdk.regions.Region;
 
-import javax.annotation.PostConstruct;
+import jakarta.annotation.PostConstruct;
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.net.URI;
