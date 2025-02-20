@@ -9,6 +9,7 @@ import software.amazon.awssdk.auth.credentials.AwsBasicCredentials;
 import software.amazon.awssdk.auth.credentials.StaticCredentialsProvider;
 import software.amazon.awssdk.services.s3.model.*;
 import software.amazon.awssdk.services.s3.S3Client;
+import software.amazon.awssdk.services.s3.S3Configuration;
 import software.amazon.awssdk.regions.Region;
 
 import jakarta.annotation.PostConstruct;
@@ -43,11 +44,16 @@ public class UploadService {
     private S3Client s3Client;
 
     @PostConstruct
-    public void initializeS3Client() {
+    public void initializeS3Client() throws URISyntaxException {
+        URI.create(camenduruWebS3Endpoint); 
+        S3Configuration config = S3Configuration.builder()
+            .pathStyleAccessEnabled(true)
+            .build();
         this.s3Client = S3Client.builder()
             .region(Region.of(camenduruWebS3Region))
             .credentialsProvider(StaticCredentialsProvider.create(AwsBasicCredentials.create(camenduruWebS3Access, camenduruWebS3Secret)))
             .endpointOverride(URI.create(camenduruWebS3Endpoint))
+            .serviceConfiguration(config)
             .build();
     }
 
